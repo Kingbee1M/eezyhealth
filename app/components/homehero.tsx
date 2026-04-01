@@ -5,8 +5,8 @@ import Image from "next/image";
 import apple from '@/public/svg/apple.svg';
 import google from '@/public/svg/googleplay.svg';
 import fr1 from '@/public/svg/frame1.svg';
-import fr2 from './public/svg/frame2.svg';
-// import fr3 from '@/public/svg/frame3.svg';
+import fr2 from '@/public/svg/frame2.svg';
+import fr3 from '@/public/svg/frame3.svg';
 import fr4 from '@/public/svg/frame4.svg';
 import fr5 from '@/public/svg/frame5.svg';
 
@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function HomeHero() {
-  const frames = [fr1, fr2, fr4, fr5];
+  const frames = [fr1, fr2, fr3, fr4, fr5];
   const [index, setIndex] = useState(0);
 
   // Switch images every 4 seconds
