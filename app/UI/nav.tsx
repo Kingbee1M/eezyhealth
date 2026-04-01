@@ -4,17 +4,18 @@ import Image from 'next/image'
 import { IoMdMenu, IoMdClose} from "react-icons/io";
 import { useState } from 'react';
 import Link from 'next/link';
-
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
     const navs = [
-        {title: 'Home', link: '/'},
-        {title: 'How it works', link: '/'},
-        {title: 'FAQS', link: '/'},
-        {title: 'About Us', link: '/about-us'},
-        {title: 'Contact Us', link: '/'},
+        {title: 'Home', link: '/', internal: true},
+        {title: 'How it works', link: '#works', internal: false},
+        {title: 'FAQS', link: '#faqs', internal: false},
+        {title: 'About Us', link: '/about-us', internal: true},
+        {title: 'Contact Us', link: '/contact-us', internal: true},
     ]
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
     return (
         <nav className={`
         w-screen fixed top-0 left-0 z-20 bg-nav-bg p-3
@@ -36,7 +37,12 @@ export default function Navbar() {
             `}>
                 {navs.map((nav, index) => (
                     <li key={index} className=''>
-                        <Link href={nav.link} className='font-inter cursor-pointer'>{nav.title}</Link>
+                        {nav.internal? (
+                            <Link href={nav.link} className={`font-inter cursor-pointer ${pathname === nav.link ? 'text-primary-green' : ''}`}>{nav.title}</Link>
+                        ) : (
+                            <a href={nav.link} className='font-inter cursor-pointer'>{nav.title}</a>
+                        )}
+                        
                     </li>
                 ))}
             </ul>

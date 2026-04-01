@@ -8,9 +8,15 @@
 
   /* ----------colors---------- */
   --color-nav-bg: #EAECF0;
-
+  --color-primary-green: #44CE2D;
+  --color-light-green: #F4FCF2;
+  --color-headers: #454545;
+  --color-text: #363636;
+  --color-text2: #171717;
   /* ----------fonts---------- */
   --font-inter: var(--font-inter);
+  --font-georgian: var(--font-georgian);
+  --font-georgia: Georgia, Times, serif;
 }
 
 @theme inline {
@@ -134,5 +140,73 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #454545;
+  font-weight: 700;
+  font-size: 48px;
+  }
+
+  h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #171717;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #171717;
+    font-weight: 500;
+  }
+
+  p {
+    color: #454545;
+    font-family: var(--font-inter);
+  }
+
+  label {
+    font-family: var(--font-inter);
+    font-weight: 500;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+    padding: 10px 5px;
+    background-color: #F9FAFB;
+    color: #D1D1D1;
+  }
+
+  textArea {
+    width: 100%;
+    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+    padding: 10px 5px;
+    background-color: #F9FAFB;
+    color: #D1D1D1;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  textArea:focus {
+    outline: none;
   }
 }
+
+@layer components {
+  .inputDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+}
+
