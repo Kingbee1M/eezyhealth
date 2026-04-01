@@ -5,7 +5,7 @@ import Image from "next/image";
 import apple from '@/public/svg/apple.svg';
 import google from '@/public/svg/googleplay.svg';
 import fr1 from '@/public/svg/frame1.svg';
-import fr2 from '@/public/svg/frame2.svg';
+import fr2 from './public/svg/frame2.svg';
 // import fr3 from '@/public/svg/frame3.svg';
 import fr4 from '@/public/svg/frame4.svg';
 import fr5 from '@/public/svg/frame5.svg';
