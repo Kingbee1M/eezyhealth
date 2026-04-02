@@ -18,9 +18,10 @@ export default function Navbar() {
     const pathname = usePathname();
     return (
         <nav className={`
-        w-screen fixed top-0 left-0 z-20 bg-nav-bg p-3
+        w-screen fixed top-0 left-0 z-40 bg-nav-bg p-3
         flex flex-col lg:flex-row lg:items-center justify-between
         transition-all duration-300 ease-in-out
+        px-16
         ${isOpen ? 'h-56' : 'h-12'} 
         overflow-hidden
         `}>

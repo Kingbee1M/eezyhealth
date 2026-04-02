@@ -14,7 +14,7 @@ function Accordion({
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
-      className={cn("flex w-full lg:w-2/3 flex-col", className)}
+      className={cn("flex w-full lg:w-full flex-col", className)}
       {...props}
     />
   )
@@ -27,7 +27,7 @@ function AccordionItem({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("not-last:border-b", className)}
+      className={cn("not-last:border-b w-full", className)}
       {...props}
     />
   )
@@ -48,8 +48,8 @@ function AccordionTrigger({
         )}
         {...props}
       >
-        <Plus data-slot="accordion-trigger-icon" className="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden" />
-        <Minus data-slot="accordion-trigger-icon" className="pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
+        <Plus data-slot="accordion-trigger-icon" className=" mr-3 pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden" />
+        <Minus data-slot="accordion-trigger-icon" className=" mr-3 pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
         {children}
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
@@ -69,7 +69,7 @@ function AccordionContent({
     >
       <p
         className={cn(
-          "pt-0 pb-2.5 ml-5 text-base leading-6 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
+          "w-full pt-0 pb-2.5 ml-5 text-base leading-6 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
           className
         )}
       >

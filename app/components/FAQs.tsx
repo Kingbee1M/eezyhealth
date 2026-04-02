@@ -18,9 +18,11 @@ export default function FAQs() {
         <section id="faqs" className="w-full py-20 flex flex-col items-center gap-16">
             <h2>Frequently asked questions</h2>
 
-            <div className="w-4/5 lg:w-3/5 flex flex-col items-center lg:items-start font-georgia">
-                {faqs.map((faq, index)=> (
-                <Accordion key={index} type="single" collapsible defaultValue={`item-${index + 1}`}>
+            <div className="w-4/5 lg:w-[70%] flex flex-col items-center lg:items-start font-georgia">
+                {faqs.map((faq, index)=> {
+                    const isFirst = index === 0;
+                    return (
+                <Accordion className={`${isFirst? '' : 'border-t border-t-nav-bg mt-2'}`} key={index} type="single" collapsible defaultValue={`item-${index + 1}`}>
                 <AccordionItem value={`item-${index + 1}`}>
                     <AccordionTrigger>{faq.question}</AccordionTrigger>
                     <AccordionContent>
@@ -28,7 +30,7 @@ export default function FAQs() {
                     </AccordionContent>
                 </AccordionItem>
                 </Accordion>
-                ))}
+                )})}
             </div>
         </section>
     )

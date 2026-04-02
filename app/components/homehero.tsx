@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 
-import apple from '@/public/svg/apple.svg';
-import google from '@/public/svg/googleplay.svg';
-import fr1 from '@/public/svg/frame1.svg';
-import fr2 from '@/public/svg/frame2.svg';
-import fr3 from '@/public/svg/frame3.svg';
-import fr4 from '@/public/svg/frame4.svg';
-import fr5 from '@/public/svg/frame5.svg';
+import apple from '@/public/svg/ios.svg';
+import google from '@/public/svg/android.svg';
+import fr2 from '@/public/svg/frame2.webp';
+import fr3 from '@/public/svg/frame3.webp';
+import fr4 from '@/public/svg/frame4.webp';
+import fr5 from '@/public/svg/frame5.webp';
+import fr1 from '@/public/svg/frame1.webp';
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,14 +47,14 @@ export default function HomeHero() {
             src={frames[index]} 
             alt={`Frame ${index + 1}`} 
             fill
-            priority // Critical: prevents the 'white flash' by preloading
+            priority 
             className="object-cover"
           />
         </motion.div>
       </AnimatePresence>
 
-      {/* 3. FIXED TEXT CONTENT (Always on top) */}
-      <div className="absolute left-10 top-1/2 -translate-y-1/2 z-10 max-w-lg lg:max-w-2xl">
+      {/* Texts */}
+      <div className="absolute left-17 top-1/2 -translate-y-1/2 z-10 max-w-lg lg:max-w-2xl">
         <h2 className="text-white text-3xl lg:text-6xl font-bold font-inter leading-tight">
           Access to quality healthcare anywhere
         </h2>
@@ -62,20 +62,12 @@ export default function HomeHero() {
           Connect with top doctors from the comfort of your home.
         </p>
 
-        <div className="flex gap-2 mt-5">
-            <a href="https://apps.apple.com/us/app/facebook/id284882215" target="blank" className="bg-black text-white flex items-center p-2 gap-3">
-                <Image src={apple} alt='apple' width={20} height={20} />
-                <div>
-                <p className="text-xs text-white">Download on the</p>
-                <p className="text-sm text-white">App Store</p>
-                </div>
+        <div className="flex item-start gap-0.5 mt-5">
+            <a href="https://apps.apple.com/us/app/facebook/id284882215" target="blank" className="block w-fit cursor-pointer">
+                <Image src={apple} alt='apple' width={20} height={20} className="w-40 h-12.5"/>
             </a>
-            <a href="https://play.google.com/store/search?q=easybuy&c=apps&hl=en" target="blank" className="bg-black text-white flex items-center p-2 gap-3">
-                <Image src={google} alt='google' width={20} height={20} />
-                <div>
-                    <p className="text-xs text-white">Get it on</p>
-                    <p className="text-sm text-white">Google play</p>
-                </div>
+            <a href="https://play.google.com/store/search?q=easybuy&c=apps&hl=en" target="blank" className="w-fit block cursor-pointer">
+                <Image src={google} alt='google' width={20} height={20} className="w-40 h-12.5" />
             </a>
         </div>
       </div>

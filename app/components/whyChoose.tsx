@@ -20,7 +20,7 @@ export default function WhyChoose() {
             <h2 className="font-georgia color-[#171717] font-bold text-3xl">Why Choose EezyHealth?</h2>
             <p className="w-4/5 text-center mt-4">Discover how our platform transforms healthcare experiences for both patients and providers</p>
 
-            <div className="flex flex-wrap justify-center gap-x-5 gap-y-15 w-[90%] mt-16">
+            <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 justify-center gap-x-5 gap-y-15 w-[90%] items-center mt-16">
                 {datas.map((data, index)=> (
                     <div key={index} className="w-90 flex flex-col items-center gap-5">
                         <div className="bg-[#F0FBEE] text-primary-green w-8 h-8 rounded-md flex items-center justify-center">{data.icon}</div>
