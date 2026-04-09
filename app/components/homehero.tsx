@@ -17,7 +17,6 @@ export default function HomeHero() {
   const frames = [fr1, fr2, fr3, fr4, fr5];
   const [index, setIndex] = useState(0);
 
-  // Switch images every 4 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % frames.length);
