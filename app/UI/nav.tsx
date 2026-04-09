@@ -26,7 +26,7 @@ export default function Navbar() {
         overflow-hidden
         `}>
             <div className='w-full lg:w-1/3 flex justify-between items-center'>
-                <Image src={logo} alt='logo' width={20} height={20} className='w-28 lg:w-40' />
+                <Link href="/"><Image src={logo} alt='logo' width={20} height={20} className='w-28 lg:w-40' /></Link>
                 <button onClick={()=>setIsOpen(!isOpen)} className={`inline lg:hidden text-2xl  transition-transform duration-500 ease-in-out
           ${isOpen ? 'rotate-180' : 'rotate-0'}`}>{isOpen? (<IoMdClose/>) : (<IoMdMenu/>)}</button>
             </div>
