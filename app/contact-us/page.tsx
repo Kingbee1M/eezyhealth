@@ -1,77 +1,141 @@
 'use client'
 import img from "@/public/svg/blood-pressure.svg"
 import Image from "next/image"
-import { useState } from "react"
 import Link from "next/link"
+import { useFormik, FormikErrors, FormikTouched } from "formik"
+import { z } from "zod"
+import { toFormikValidationSchema } from "zod-formik-adapter"
+
+// 1. FIXED: Simplified Zod literal message structure
+const stringRequired = (msg: string, minLength: number = 1) => 
+  z.preprocess(
+    (val) => (val === undefined || val === null ? "" : val),
+    z.string().min(minLength, msg)
+  );
+
+const contactSchema = z.object({
+  firstName: stringRequired("First name is required", 2),
+    
+  lastName: stringRequired("Last name is required", 2),
+    
+  email: z.preprocess(
+    (val) => (val === undefined || val === null ? "" : val),
+    z.string().min(1, "Email is required").email("Invalid email address")
+  ),
+    
+  phone: stringRequired("Phone number is required", 10),
+    
+  message: stringRequired("Please enter a message", 10),
+    
+  privacyPolicy: z.boolean().refine((val) => val === true, {
+    message: "You must accept the privacy policy",
+  }),
+});
+
+type FormValues = z.infer<typeof contactSchema>;
+
+const ErrorMsg = ({ 
+  name, 
+  touched, 
+  errors 
+}: { 
+  name: keyof FormValues; 
+  touched: FormikTouched<FormValues>; 
+  errors: FormikErrors<FormValues> 
+}) => {
+  const error = errors[name];
+  const isTouched = touched[name];
+
+  if (isTouched && error) {
+    return <span className="text-red-500 text-xs mt-1">{error as string}</span>;
+  }
+  return null;
+};
 
 export default function ContactUs() {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: ''
-    })
+  const formik = useFormik<FormValues>({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      message: '',
+      privacyPolicy: false as unknown as true, 
+    },
+    validationSchema: toFormikValidationSchema(contactSchema),
+    onSubmit: (values) => {
+      console.log("Form Data:", values);
+    },
+  });
 
-    const [isChecked, setIsChecked] = useState(false);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target;
-    
-    setFormData((prevData) => ({
-        ...prevData,
-        [id]: value 
-    }));
-};
-    return(
-        <section className="w-[90%] flex justify-between my-12 ">
-            <div className="flex flex-col w-9/10 lg:w-2/5 gap-4">
-                <h1>Get In Touch</h1>
-                <p>Our friendly team would love to hear from you.</p>
-                <form className="flex flex-col gap-5 w-full mt-3">
-                    <div className="flex gap-2">
-                        <div className="inputDiv">
-                            <label htmlFor="firstName">First Name</label>
-                            <input type="text" placeholder="First Name" value={formData.firstName} onChange={handleChange} id="firstName" />
-                        </div>
-
-                        <div className="inputDiv">
-                            <label htmlFor="lastName">Last Name</label>
-                            <input type="text" placeholder="Last Name" value={formData.lastName} onChange={handleChange} id="lastName" />
-                        </div>
-                    </div>
-
-                    <div className="inputDiv">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" placeholder="you@company.com" value={formData.email} onChange={handleChange} id="email" />
-                    </div>
-
-                    <div className="inputDiv">
-                        <label htmlFor="phone">Phone Number</label>
-                        <input type="tel" placeholder="+234 (070) 000-0000" value={formData.phone} onChange={handleChange} id="phone" />
-                    </div>
-
-
-                    <div className="inputDiv">
-                        <label htmlFor="message">Message</label>
-                        <textarea placeholder="Leave us a message..." value={formData.message} onChange={handleChange} rows={5} id="message" />
-                    </div>
-                </form>
-
-                <div className="flex w-full gap-3">
-                    <input type="checkbox" className="w-auto" checked={isChecked} onChange={() => setIsChecked(!isChecked)}  /> <p>you agree to our friendly <Link href={'/privacy-policy'} className="font-inter underline">privacy policy.</Link></p>
-                </div>
-
-                <button 
-                disabled={!isChecked} 
-                className={`px-6 py-2 rounded-lg ${!isChecked ? 'bg-gray-400 cursor-not-allowed' : 'bg-primary-green'}`}
-                >
-                Send Message
-                </button>
+  return (
+    <section className="w-full px-7 flex justify-between py-12 bg-white">
+      <div className="flex flex-col w-9/10 lg:w-1/2 gap-4">
+        <h1>Get In Touch</h1>
+        <p>Our friendly team would love to hear from you.</p>
+        
+        <form onSubmit={formik.handleSubmit} className="flex flex-col gap-5 w-full mt-3">
+          <div className="flex gap-4">
+            <div className="inputDiv flex-1 flex flex-col">
+              <label htmlFor="firstName">First Name</label>
+              <input type="text" {...formik.getFieldProps('firstName')} id="firstName" />
+              <ErrorMsg name="firstName" touched={formik.touched} errors={formik.errors} />
             </div>
-            
-            <Image src={img} alt="blood-pressure" width={20} height={20} className="hidden lg:inline w-28 lg:w-2/5" />
-                
-        </section>
-    )
+
+            <div className="inputDiv flex-1 flex flex-col">
+              <label htmlFor="lastName">Last Name</label>
+              <input type="text" {...formik.getFieldProps('lastName')} id="lastName" />
+              <ErrorMsg name="lastName" touched={formik.touched} errors={formik.errors} />
+            </div>
+          </div>
+
+          <div className="inputDiv flex flex-col">
+            <label htmlFor="email">Email</label>
+            <input type="email" {...formik.getFieldProps('email')} id="email" />
+            <ErrorMsg name="email" touched={formik.touched} errors={formik.errors} />
+          </div>
+
+          <div className="inputDiv flex flex-col">
+            <label htmlFor="phone">Phone Number</label>
+            <input type="tel" {...formik.getFieldProps('phone')} id="phone" />
+            <ErrorMsg name="phone" touched={formik.touched} errors={formik.errors} />
+          </div>
+
+          <div className="inputDiv flex flex-col">
+            <label htmlFor="message">Message</label>
+            <textarea {...formik.getFieldProps('message')} rows={5} id="message" />
+            <ErrorMsg name="message" touched={formik.touched} errors={formik.errors} />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <div className="flex w-full gap-3">
+              <input
+                type="checkbox"
+                className="w-auto"
+                id="privacyPolicy"
+                name="privacyPolicy"
+                // 2. FIXED: Explicitly cast to boolean to satisfy React's 'checked' prop
+                checked={!!formik.values.privacyPolicy}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              /> 
+              <p>you agree to our friendly <Link href={'/privacy-policy'} className="font-inter underline">privacy policy.</Link></p>
+            </div>
+            <ErrorMsg name="privacyPolicy" touched={formik.touched} errors={formik.errors} />
+          </div>
+
+          <button
+            type="submit"
+            disabled={formik.isSubmitting}
+            className={`px-6 py-2 rounded-lg text-white ${
+              !formik.isValid || !formik.dirty ? 'bg-gray-400 cursor-not-allowed' : 'bg-primary-green'
+            }`}
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+      <Image src={img} alt="blood-pressure" width={20} height={20} className="hidden lg:inline w-28 lg:w-2/5" />
+    </section>
+  )
 }

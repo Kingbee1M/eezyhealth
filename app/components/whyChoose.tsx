@@ -16,7 +16,7 @@ export default function WhyChoose() {
         {icon: <HiOutlineSquares2X2 />, title: "Clinic Management Tools", description: "Manage your entire practice from one comprehensive dashboard. Patient records, appointment scheduling" },
     ]
     return (
-        <section className="w-full flex flex-col items-center my-30">
+        <section className="w-full flex flex-col items-center py-30 bg-white">
             <h2 className="font-georgia color-[#171717] font-bold text-3xl">Why Choose EezyHealth?</h2>
             <p className="w-4/5 text-center mt-4">Discover how our platform transforms healthcare experiences for both patients and providers</p>
 

@@ -15,7 +15,7 @@ export default function FooterSection() {
     ]
     const pathName = usePathname() 
     return(
-        <footer className="bg-black py-10 gap-6 flex flex-col items-center">
+        <footer className="bg-black py-10 gap-6 flex flex-col items-center px-16">
             <Image src={logo} alt="logo" width={70} height={70} className="w-17.5 lg:w-25" />
 
             <ul className="flex items-center justify-between gap-3 lg:justify-center lg:gap-10 w-full">
@@ -31,7 +31,9 @@ export default function FooterSection() {
                 ))}
             </ul>
 
-            <p className="w-full text-[10px]">© 2025 eezyhealth. All rights reserved.</p>
+            <hr className="bg-[#475467] w-full"/>
+
+            <p className="w-full text-[10px] text-white">© 2025 eezyhealth. All rights reserved.</p>
         </footer>
     )
 }

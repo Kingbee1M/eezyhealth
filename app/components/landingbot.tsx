@@ -11,13 +11,13 @@ export default function LandingBot() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-2 w-1/3 items-center">
-            <a href="https://apps.apple.com/us/app/facebook/id284882215" target="blank" className="block w-fit cursor-pointer">
-                <Image src={apple} alt='apple' width={20} height={20} className="w-40 h-12.5"/>
-            </a>
-            <a href="https://play.google.com/store/search?q=easybuy&c=apps&hl=en" target="blank" className="w-fit block cursor-pointer">
-                <Image src={google} alt='google' width={20} height={20} className="w-40 h-12.5" />
-            </a>
-        </div>
+                <a href="https://apps.apple.com/us/app/facebook/id284882215" target="blank" className="block w-fit cursor-pointer">
+                    <Image src={apple} alt='apple' width={20} height={20} className="w-40 h-12.5"/>
+                </a>
+                <a href="https://play.google.com/store/search?q=easybuy&c=apps&hl=en" target="blank" className="w-fit block cursor-pointer">
+                    <Image src={google} alt='google' width={20} height={20} className="w-40 h-12.5" />
+                </a>
+            </div>
         </section>
     )
 }

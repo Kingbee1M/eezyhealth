@@ -136,7 +136,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply@apply bg-background text-foreground;
+    background-image: url('../public/webp/doctor-team.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
   html {
     @apply font-sans;
@@ -172,6 +177,7 @@
   label {
     font-family: var(--font-inter);
     font-weight: 500;
+    font-size: 14px;
   }
 
   input {
@@ -180,7 +186,7 @@
     border-radius: 8px;
     padding: 10px 5px;
     background-color: #F9FAFB;
-    color: #D1D1D1;
+    color: #212121;
   }
 
   textArea {
@@ -198,6 +204,10 @@
 
   textArea:focus {
     outline: none;
+  }
+
+  input::placeholder {
+    color: #D1D1D1;
   }
 }
 

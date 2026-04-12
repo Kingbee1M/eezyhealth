@@ -11,7 +11,7 @@ export default function WeBelieve() {
         {title: 'Collaboration', desc: 'Better health outcomes happen when patients, doctors, and staff work together seamlessly.', icon: 'hands'},
     ]
     return (
-        <section className="w-9/10 flex items-center lg:items-start flex-col mt-20 gap-8">
+        <section className="flex items-center lg:items-start flex-col pt-20 gap-8 pb-12 px-3 bg-[#F8FDF7]">
             <h2>What We Believe</h2>
             <p className="w-full lg:w-1/2 text-center lg:text-left">Building trust in healthcare technology requires more than just compliance—it demands a genuine commitment to the values that healthcare professionals and patients hold dear. These beliefs shape how we approach every challenge and opportunity in our mission to transform healthcare management.</p>
 
