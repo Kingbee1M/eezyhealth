@@ -1,14 +1,12 @@
 'use client';
 
 import Image from "next/image";
-
-import apple from '@/public/svg/ios.svg';
-import google from '@/public/svg/android.svg';
 import fr2 from '@/public/svg/frame2.webp';
 import fr3 from '@/public/svg/frame3.webp';
 import fr4 from '@/public/svg/frame4.webp';
 import fr5 from '@/public/svg/frame5.webp';
 import fr1 from '@/public/svg/frame1.webp';
+import { Icons } from "../UI/Icons";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -31,14 +29,12 @@ export default function HomeHero() {
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={index}
-          /* "100%" ensures it starts exactly off-screen to the right */
           initial={{ x: "100%" }} 
           animate={{ x: 0 }}
-          /* "-100%" ensures it exits exactly off-screen to the left */
           exit={{ x: "-100%" }}
           transition={{ 
-            duration: 1.2, // Slightly slower makes it feel more "premium"
-            ease: [0.4, 0, 0.2, 1] // Smooth 'cubic-bezier' for a carousel feel
+            duration: 1.2,
+            ease: [0.4, 0, 0.2, 1]
           }}
           className="absolute inset-0 w-full h-full"
         >
@@ -53,20 +49,21 @@ export default function HomeHero() {
       </AnimatePresence>
 
       {/* Texts */}
-      <div className="absolute left-17 top-1/2 -translate-y-1/2 z-10 max-w-lg lg:max-w-2xl">
-        <h2 className="text-white text-3xl lg:text-6xl font-bold font-inter leading-tight">
-          Access to quality healthcare anywhere
+      <div className="absolute flex flex-col gap-3 items-start left-17 top-1/2 -translate-y-1/2 z-10 max-w-lg lg:max-w-2xl">
+        <p className="text-primary-green border-[0.5px] border-primary-green py-1 px-3 rounded-full ">Trusted by 2M+ patients worldwide</p>
+        <h2 className="text-white text-3xl lg:text-6xl font-bold font-inter leading-tight flex flex-col ">
+          Your doctor,<span className="text-primary-green">wherever</span> you are.
         </h2>
-        <p className="text-white/90 text-lg lg:text-xl mt-4">
-          Connect with top doctors from the comfort of your home.
+        <p className="text-white/90 text-lg lg:text-xl w-4/5 mt-4">
+          eezyhealth connects you to qualified doctors in seconds not days. Video consults, prescriptions, records and scheduling, all in one place.
         </p>
 
         <div className="flex item-start gap-0.5 mt-5">
             <a href="https://apps.apple.com/us/app/facebook/id284882215" target="blank" className="block w-fit cursor-pointer">
-                <Image src={apple} alt='apple' width={20} height={20} className="w-40 h-12.5"/>
+                <Icons name="ios" />
             </a>
             <a href="https://play.google.com/store/search?q=easybuy&c=apps&hl=en" target="blank" className="w-fit block cursor-pointer">
-                <Image src={google} alt='google' width={20} height={20} className="w-40 h-12.5" />
+                <Icons name="android" />
             </a>
         </div>
       </div>

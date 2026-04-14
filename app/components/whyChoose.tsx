@@ -1,31 +1,40 @@
-import { CiCalendar } from "react-icons/ci";
-import { AiOutlineVideoCamera } from "react-icons/ai";
-import { RxCounterClockwiseClock } from "react-icons/rx";
-import { TbCalendarWeek } from "react-icons/tb";
-import { GoShieldCheck } from "react-icons/go";
-import { HiOutlineSquares2X2 } from "react-icons/hi2";
+import { Icons } from "../UI/Icons";
 
 
 export default function WhyChoose() {
     const datas = [
-        {icon: <CiCalendar />, title: "Book Appointments", description: "Find and book appointments with qualified doctors in seconds, not days." },
-        {icon: <AiOutlineVideoCamera />, title: "Video & Voice Consultations", description: "Get quality healthcare from the comfort of your home with HD video consultations and crystal-clear voice calls." },
-        {icon: <RxCounterClockwiseClock />, title: "24/7 Doctor Availability", description: "Access healthcare whenever you need it with our network of doctors available around the clock." },
-        {icon: <TbCalendarWeek />, title: "Flexible Scheduling", description: "Take complete control of your schedule by setting your preferred hours and block time for emergencies." },
-        {icon: <GoShieldCheck />, title: "Secure Consultations", description: "Conduct consultations with confidence using HIPAA-compliant video technology." },
-        {icon: <HiOutlineSquares2X2 />, title: "Clinic Management Tools", description: "Manage your entire practice from one comprehensive dashboard. Patient records, appointment scheduling" },
+        {icon: 'calender2', title: "Book Appointments", description: "Find and book a qualified doctor in under 60 seconds. No phone calls. No waiting rooms.", id: '01' },
+        {icon: 'video', title: "Video & Voice Consultations", description: "Crystal-clear video consultations from your couch. Works on any device, anywhere with signal.", id: '02' },
+        {icon: 'clock', title: "24/7 Doctor Availability", description: "Health doesn't keep office hours. Our network of doctors is always on — nights, weekends, holidays.", id: '03' },
+        {icon: 'check', title: "Flexible Scheduling", description: "Set your preferred hours, block time for emergencies, or get connected instantly for urgent care.", id: '04' },
+        {icon: 'shield2', title: "Secure Consultations", description: "End-to-end encrypted consultations and records. Your health data belongs to you, always.", id: '05' },
+        {icon: 'pc', title: "Clinic Management Tools", description: "For providers: one dashboard for records, schedules, billing and patient communication.", id: '06' },
     ]
     return (
-        <section className="w-full flex flex-col items-center py-30 bg-white">
-            <h2 className="font-georgia color-[#171717] font-bold text-3xl">Why Choose EezyHealth?</h2>
-            <p className="w-4/5 text-center mt-4">Discover how our platform transforms healthcare experiences for both patients and providers</p>
+        <section className="w-full flex flex-col items-center py-30 bg-[#0D0F0E] px-16">
+            <div className="w-full flex justify-between items-end">
+                <div className="w-[35%] flex flex-col">
+                    <p className="text-primary-green font-bold ">WHAT WE OFFER</p>
+                    <h2 className="font-georgia color-[#171717] font-bold text-4xl text-white">Everything you need. Nothing you don&apos;t.</h2>
+                </div>
+            
+                <p className="w-1/2 text-[#E9E9E9]">
+                    We built eezyhealth around one idea: healthcare should feel like talking to someone who actually knows you — not filling out forms.
+                </p>
+            </div>
+            
+            
 
             <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 justify-center gap-x-5 gap-y-15 w-[90%] items-center mt-16">
                 {datas.map((data, index)=> (
-                    <div key={index} className="w-90 flex flex-col items-center gap-5">
-                        <div className="bg-[#F0FBEE] text-primary-green w-8 h-8 rounded-md flex items-center justify-center">{data.icon}</div>
-                        <h3 className="w-full text-center text-base">{data.title}</h3>
-                        <p className="w-full text-center text-sm">{data.description}</p>
+                    <div key={index} className="w-70 h-full flex flex-col gap-3 p-3 rounded-lg bg-[#191C1A] hover:bg-[#333935] cursor-pointer relative overflow-clip group">
+                        <div className="w-0 h-48 border-l-5 border-l-primary-green absolute -top-60 left-0 group-hover:translate-y-60 duration-300 ease-in-out"/>
+                        <div className="w-full flex justify-between">
+                            <Icons name={data.icon} size="xxs" />
+                            <p className="text-[#646464] text-[40px] font-medium">{data.id}</p>
+                        </div>
+                        <h3 className="w-full text-base text-white">{data.title}</h3>
+                        <p className="w-full text-sm text-[#CFCDCD]">{data.description}</p>
                     </div>
                 ))}
             </div>

@@ -15,10 +15,15 @@ export default function FAQs() {
         { question: "What types of health concerns can I use TeleHealth for?", answer: "You can use the app for a wide range of non-emergency medical concerns, including: Common Illnesses, Skin Conditions, Mental Health, Routine Care, Chronic Management" },
     ]
     return(
-        <section id="faqs" className="w-full py-20 flex flex-col items-center gap-16">
-            <h2>Frequently asked questions</h2>
+        <section id="faqs" className="w-full py-20 flex flex-col px-16 gap-16 bg-[#F6FEF5]">
+            <h3 className="text-primary-green font-normal">FAQs</h3>
+            <div className="w-full grid grid-cols-[270px_330px] justify-between ">
+                <h2>Honest answersto real questions.</h2>
+                <p>Still unsure? Here are the questions we hear most from new patients.</p>
+            </div>
+            
 
-            <div className="w-4/5 lg:w-[70%] flex flex-col items-center lg:items-start font-georgia">
+            <div className="w-4/5 lg:w-full grid grid-cols-[900px] justify-center lg:items-start font-georgia">
                 {faqs.map((faq, index)=> {
                     const isFirst = index === 0;
                     return (

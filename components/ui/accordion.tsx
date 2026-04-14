@@ -43,14 +43,14 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "w-full font-inter leading-4.5 text-lg focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring **:data-[slot=accordion-trigger-icon]:text-muted-foreground rounded-lg py-2.5 text-left font-medium hover:underline focus-visible:ring-3 **:data-[slot=accordion-trigger-icon]:ml-0 **:data-[slot=accordion-trigger-icon]:size-4 group/accordion-trigger relative flex flex-1 items-center justify-start border border-transparent transition-all outline-none disabled:pointer-events-none disabled:opacity-50",
+          "w-full justify-between font-inter leading-4.5 text-lg focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring **:data-[slot=accordion-trigger-icon]:text-muted-foreground rounded-lg py-2.5 text-left font-medium hover:underline focus-visible:ring-3 **:data-[slot=accordion-trigger-icon]:ml-0 **:data-[slot=accordion-trigger-icon]:size-4 group/accordion-trigger relative flex flex-1 items-center border border-transparent transition-all outline-none disabled:pointer-events-none disabled:opacity-50",
           className
         )}
         {...props}
       >
+        {children}
         <Plus data-slot="accordion-trigger-icon" className=" mr-3 pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden" />
         <Minus data-slot="accordion-trigger-icon" className=" mr-3 pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
-        {children}
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )

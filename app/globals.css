@@ -8,13 +8,13 @@
 
   /* ----------colors---------- */
   --color-nav-bg: #EAECF0;
-  --color-primary-green: #44CE2D;
+  --color-primary-green: #18A10A;
   --color-light-green: #F4FCF2;
   --color-headers: #454545;
   --color-text: #363636;
   --color-text2: #171717;
   /* ----------fonts---------- */
-  --font-inter: var(--font-inter);
+  --font-dmSans: var(--font-dmSans);
   --font-georgian: var(--font-georgian);
   --font-georgia: Georgia, Times, serif;
 }
@@ -171,11 +171,11 @@
 
   p {
     color: #454545;
-    font-family: var(--font-inter);
+    font-family: var(--font-dmSans);
   }
 
   label {
-    font-family: var(--font-inter);
+    font-family: var(--font-dmSans);
     font-weight: 500;
     font-size: 14px;
   }

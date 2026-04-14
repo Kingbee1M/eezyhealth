@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Geist, Noto_Sans_Georgian } from "next/font/google";
+import { Geist, Noto_Sans_Georgian, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./UI/nav";
 import FooterSection from "./UI/footer";
@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
+  display: 'auto',
+  variable: '--font-dmSans',
 });
 
 const georgian = Noto_Sans_Georgian({
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
       <body
-        className={`${inter.variable} ${georgian.variable} antialiased w-screen h-screen overflow-x-clip`}
+        className={`${dmSans.variable} ${georgian.variable} antialiased w-screen h-screen overflow-x-clip`}
       >
         <Navbar/>
         <main className="w-full mt-12 flex flex-col items-center justify-center grow">
