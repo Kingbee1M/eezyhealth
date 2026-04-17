@@ -15,7 +15,7 @@ export default function FooterSection() {
     ]
     const pathName = usePathname() 
     return(
-        <footer className="bg-black py-10 gap-6 flex flex-col items-center px-16">
+        <footer className="bg-black py-10 gap-6 flex flex-col items-center px-3 md:px-16 w-full max-w-360">
             <Image src={logo} alt="logo" width={70} height={70} className="w-17.5 lg:w-25" />
 
             <ul className="flex items-center justify-between gap-3 lg:justify-center lg:gap-10 w-full">

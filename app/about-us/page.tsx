@@ -5,11 +5,11 @@ import Mission from "../components/mission"
 
 export default function AboutUs() {
     return (
-        <>
+        <div className="">
            <AboutHeader />
            <Mission/>
            <WeBelieve/>
             <AboutBot />
-        </>
+        </div>
     )
 }

@@ -1,10 +1,12 @@
 import Counter from "../UI/counter"
+import { PiLessThanBold } from "react-icons/pi";
+
 
 export default function NumberStrip () {
     const numbers = [
         { icon: null ,first: 2, second: null, suffix: 'M+', desc: "Patients connected"},
         { icon: null ,first: 9, second: 8, suffix: '%', desc: "Satisfaction rate"},
-        { icon: '<' ,first: 3, second: null, suffix: 'min', desc: "Average wait time"},
+        { icon: <PiLessThanBold/> ,first: 3, second: null, suffix: 'min', desc: "Average wait time"},
         { icon: null ,first: 4, second: null, suffix: ',000+', desc: "Contact center seats deployed globally"},
     ]
     return(
@@ -20,7 +22,7 @@ export default function NumberStrip () {
                         />
                     </div>
                     
-                    <p>{num.desc}</p>
+                    <p className="w-full text-center text-[10px]">{num.desc}</p>
                 </div>
             ))}
         </section>

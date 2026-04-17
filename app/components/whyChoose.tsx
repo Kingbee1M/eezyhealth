@@ -12,26 +12,26 @@ export default function WhyChoose() {
     ]
     return (
         <section className="w-full flex flex-col items-center py-30 bg-[#0D0F0E] px-16">
-            <div className="w-full flex justify-between items-end">
-                <div className="w-[35%] flex flex-col">
+            <div className="w-full flex flex-col md:flex-row justify-between gap-4">
+                <div className="w-full md:w-[45%] flex flex-col">
                     <p className="text-primary-green font-bold ">WHAT WE OFFER</p>
-                    <h2 className="font-georgia color-[#171717] font-bold text-4xl text-white">Everything you need. Nothing you don&apos;t.</h2>
+                    <h2 className="font-georgia color-[#171717] font-bold text-3xl w-full text-white">Everything you need. Nothing you don&apos;t.</h2>
                 </div>
             
-                <p className="w-1/2 text-[#E9E9E9]">
+                <p className="w-full md:w-[60%] md:max-w-125 md:mt-8 text-[#E9E9E9]">
                     We built eezyhealth around one idea: healthcare should feel like talking to someone who actually knows you — not filling out forms.
                 </p>
             </div>
             
             
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 justify-center gap-x-5 gap-y-15 w-[90%] items-center mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-[max-content_max-content_max-content] lg:grid-rows-2 justify-between gap-y-15 w-full max-w-360 items-center mt-16">
                 {datas.map((data, index)=> (
-                    <div key={index} className="w-70 h-full flex flex-col gap-3 p-3 rounded-lg bg-[#191C1A] hover:bg-[#333935] cursor-pointer relative overflow-clip group">
+                    <div key={index} className="max-w-50 w-full md:max-w-70 h-full flex flex-col gap-3 p-3 rounded-lg bg-[#191C1A] hover:bg-[#333935] cursor-pointer relative overflow-clip group">
                         <div className="w-0 h-48 border-l-5 border-l-primary-green absolute -top-60 left-0 group-hover:translate-y-60 duration-300 ease-in-out"/>
                         <div className="w-full flex justify-between">
-                            <Icons name={data.icon} size="xxs" />
-                            <p className="text-[#646464] text-[40px] font-medium">{data.id}</p>
+                            <Icons name={data.icon} size="sm" />
+                            <p className="text-[#646464] text-[40px] font-medium opacity-10">{data.id}</p>
                         </div>
                         <h3 className="w-full text-base text-white">{data.title}</h3>
                         <p className="w-full text-sm text-[#CFCDCD]">{data.description}</p>

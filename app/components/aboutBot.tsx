@@ -5,22 +5,24 @@ import google from '@/public/svg/android.svg';
 
 export default function AboutBot() {
     return(
-        <section className="w-full bg-white px-10 py-20">
-            <div className="bg-primary-green w-full gap-6 lg:gap-0 px-7 py-16 rounded-lg flex flex-col lg:flex-row items-center justify-between">
-                <div className="w-full lg:w-3/5 flex flex-col gap-4">
-                    <h2 className="lg:text-3xl text-white">Join the Future of Healthcare Management</h2>
-                    <p className="text-lg lg:text-xl w-[90%] leading-5 text-white">Experience the difference that thoughtful design and powerful technology can make in healthcare delivery.</p>
+        <section className="w-full px-5 md:px-16 py-20 flex justify-around gap-5 bg-white">
+
+            <div className="bg-primary-green flex flex-col gap-2 md:flex-row justify-between w-full rounded-lg p-4 md:p-16">
+                <div className="w-auto lg:w-3/4">
+                    <h2 className="text-base md:text-2xl text-white">Join the Future of Healthcare Management</h2>
+                    <p   className=" text-white text-sm md:text-base w-full md:w-4/5">Experience the difference that thoughtful design and powerful technology can make in healthcare delivery.</p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2 w-1/3 items-center">
-                                <a href="https://apps.apple.com/us/app/facebook/id284882215" target="blank" className="block w-fit cursor-pointer">
-                                    <Image src={apple} alt='apple' width={20} height={20} className="w-40 h-12.5"/>
-                                </a>
-                                <a href="https://play.google.com/store/search?q=easybuy&c=apps&hl=en" target="blank" className="w-fit block cursor-pointer">
-                                    <Image src={google} alt='google' width={20} height={20} className="w-40 h-12.5" />
-                                </a>
-                            </div>
+                 <div className="flex flex-row gap-2 w-full md:w-1/3 items-center">
+                <a href="https://apps.apple.com/us/app/facebook/id284882215" target="blank" className="block w-fit cursor-pointer">
+                    <Image src={apple} alt='apple' width={20} height={20} className="w-17 md:w-80"/>
+                </a>
+                <a href="https://play.google.com/store/search?q=easybuy&c=apps&hl=en" target="blank" className="w-fit block cursor-pointer">
+                    <Image src={google} alt='apple' width={20} height={20} className="w-17 md:w-80"/>
+                </a>
             </div>
+            </div>
+            
         </section>
     )
 }

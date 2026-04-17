@@ -32,10 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
       <body
-        className={`${dmSans.variable} ${georgian.variable} antialiased w-screen h-screen overflow-x-clip`}
+        className={`${dmSans.variable} ${georgian.variable} antialiased w-full flex flex-col justify-between items-center max-w-screen min-h-screen overflow-x-hidden`}
       >
         <Navbar/>
-        <main className="w-full mt-12 flex flex-col items-center justify-center grow">
+        <main className="w-full max-w-360 mt-9 md:mt-12 flex-1 flex-col items-center justify-center grow">
           {children}
         </main>
         

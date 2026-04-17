@@ -4,12 +4,12 @@ import React, { useEffect, useState } from 'react';
 
 const SIZES = {
   xxs: 10,
-  xs: 12,
-  sm: 14,
-  base: 16,
-  md: 18,
-  lg: 20,
-  xl: 24,
+  xs: 30,
+  sm: 50,
+  base: 100,
+  md: 150,
+  lg: 300,
+  xl: 400,
 } as const;
 
 type IconSize = keyof typeof SIZES | number;
@@ -30,22 +30,30 @@ export const Icons = ({
   const finalSize = typeof size === 'number' ? size : SIZES[size as keyof typeof SIZES] || SIZES.md;
   const src = `/svg/${name}.svg`;
 
-  useEffect(() => {
-    if (!name) return;
+ useEffect(() => {
+  if (!name) return;
 
-    // Fetch the raw file and "inject" it as an icon
-    fetch(src)
-      .then((res) => res.text())
-      .then((data) => {
-        const cleaned = data
-          .replace(/<svg/, `<svg width="${finalSize}" height="${finalSize}" class="${className}"`)
-          .replace(/width=".*?"/, '') // Remove hardcoded widths
-          .replace(/height=".*?"/, '');
-        
-        setSvgContent(cleaned);
-      })
-      .catch(() => console.error(`Icon "${name}" not found at ${src}`));
-  }, [name, finalSize, className, src]);
+  fetch(src)
+    .then((response) => response.text())
+    .then((data) => {
+  // 1. Isolate the opening <svg> tag
+  const svgOpenTagMatch = data.match(/<svg[^>]*>/);
+  if (!svgOpenTagMatch) return setSvgContent(data);
+
+  let header = svgOpenTagMatch[0];
+
+  // 2. Clean only the header string
+  header = header
+    .replace(/\s(width|height)=".*?"/g, '') // Remove w/h from header only
+    .replace(/<svg/, `<svg width="${finalSize}" height="${finalSize}" class="${className}"`);
+
+  // 3. Put it back together (replace the old header with the new one)
+  const cleaned = data.replace(/<svg[^>]*>/, header);
+  
+  setSvgContent(cleaned);
+})
+    .catch((err) => console.error(`Icon "${name}" failed to load:`, err));
+}, [name, finalSize, className, src]);
 
   if (!svgContent) return <i style={{ width: finalSize, height: finalSize }} className="inline-block" />;
 

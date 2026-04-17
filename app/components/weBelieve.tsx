@@ -15,12 +15,12 @@ export default function WeBelieve() {
             <p className="w-full lg:w-1/2 text-center lg:text-left text-white">Values that shape every decision we make.</p>
 
            
-                <div className="w-full grid grid-cols-2 grid-rows-2 gap-y-6 gap-x-5">
+                <div className="w-full max-w-360 grid grid-cols-2 grid-rows-2 gap-y-6 gap-x-5">
                     { datas.map((data, index) => (
                         <div key={index} className="w-full max-w-300 h-full flex flex-col gap-3 p-3 rounded-lg bg-[#191C1A] hover:bg-[#333935] cursor-pointer relative overflow-clip group">
                         <div className="w-0 h-48 border-l-5 border-l-primary-green absolute -top-60 left-0 group-hover:translate-y-60 duration-300 ease-in-out"/>
                         <div className="w-full flex justify-between">
-                            <Icons name={data.icon} size="xxs" />
+                            <Icons name={data.icon} size="xs" />
                             <p className="text-[#646464] text-[40px] font-medium">{data.id}</p>
                         </div>
                         <h3 className="w-full text-base text-white">{data.title}</h3>

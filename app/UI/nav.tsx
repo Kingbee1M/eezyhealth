@@ -18,15 +18,15 @@ export default function Navbar() {
     const pathname = usePathname();
     return (
         <nav className={`
-        w-screen fixed top-0 left-0 z-40 bg-nav-bg p-3
-        flex flex-col lg:flex-row lg:items-center justify-between
+        w-full max-w-screen fixed top-0 left-0 z-40 bg-nav-bg p-3
+        flex flex-col md:flex-row md:items-center justify-between
         transition-all duration-300 ease-in-out
         px-16
-        ${isOpen ? 'h-56' : 'h-12'} 
+        ${isOpen ? 'h-56' : 'h-10 md:h-12'} 
         overflow-hidden
         `}>
             <div className='w-full lg:w-1/3 flex justify-between items-center'>
-                <Link href="/"><Image src={logo} alt='logo' width={20} height={20} className='w-28 lg:w-40' /></Link>
+                <Link href="/"><Image src={logo} alt='logo' width={20} height={20} className='w-28 md:w-20 xl:w-40' /></Link>
                 <button onClick={()=>setIsOpen(!isOpen)} className={`inline lg:hidden text-2xl  transition-transform duration-500 ease-in-out
           ${isOpen ? 'rotate-180' : 'rotate-0'}`}>{isOpen? (<IoMdClose/>) : (<IoMdMenu/>)}</button>
             </div>
@@ -39,9 +39,9 @@ export default function Navbar() {
                 {navs.map((nav, index) => (
                     <li key={index} className=''>
                         {nav.internal? (
-                            <Link href={nav.link} className={`font-inter cursor-pointer ${pathname === nav.link ? 'text-primary-green' : ''}`}>{nav.title}</Link>
+                        <Link href={nav.link} className={`font-dmSans text-xs md:text-xs xl:text-base cursor-pointer ${pathname === nav.link ? 'text-primary-green' : ''}`}>{nav.title}</Link>
                         ) : (
-                            <a href={nav.link} className='font-inter cursor-pointer'>{nav.title}</a>
+                            <a href={nav.link} className='font-dmSans text-xs md:text-xs xl:text-base cursor-pointer'>{nav.title}</a>
                         )}
                         
                     </li>

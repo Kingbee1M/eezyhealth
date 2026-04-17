@@ -136,12 +136,9 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply@apply bg-background text-foreground;
-    background-image: url('../public/webp/doctor-team.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    @apply bg-background text-foreground;
+    
+    
   }
   html {
     @apply font-sans;
@@ -153,14 +150,12 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: #454545;
   font-weight: 700;
-  font-size: 48px;
   }
 
   h2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #171717;
     font-weight: 700;
-    font-size: 24px;
   }
 
   h3 {
@@ -177,7 +172,6 @@
   label {
     font-family: var(--font-dmSans);
     font-weight: 500;
-    font-size: 14px;
   }
 
   input {
@@ -220,3 +214,16 @@
   }
 }
 
+.about-body {
+  background-image: url('../public/webp/doctor-team.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
