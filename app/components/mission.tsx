@@ -4,7 +4,7 @@ import { FaCircle } from "react-icons/fa";
 export default function Mission () {
     const list = ['Global Accessibility', 'Ultimate Security', 'Simple & Fast', 'True Collaboration']
     return (
-        <section className="bg-white w-full flex flex-col md:flex-row px-4 md:px-16 py-10 justify-between">
+        <section className="bg-white w-full flex flex-col md:flex-row px-6 md:px-16 py-10 justify-between">
             <div className="w-full flex flex-col mb-5">
                 <h2 className="font-normal text-sm text-primary-green mb-4 md:mb-2">Our Mission</h2>
                 <h1 className="text-2xl leading-6 md:leading-11 font-normal w-2/3 md: xl:max-w-[40%]">Democratize access. Dignify care.</h1>

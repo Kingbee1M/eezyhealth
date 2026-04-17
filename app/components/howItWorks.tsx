@@ -11,7 +11,7 @@ export default function HowItWorks() {
         {id: 4, icon: 'doctoricon', title: 'Talk to a Doctor', desc: 'Video or voice consultation, digital prescriptions, and follow-up care — all in the app.'},
     ]
     return (
-        <section id="works" className="w-full flex flex-col lg:px-16 lg:flex-row justify-between items-center lg:items-start relative bg-white py-8 overflow-hidden">
+        <section id="works" className="w-full flex flex-col lg:px-16 lg:flex-row justify-between items-center relative bg-white py-8 overflow-hidden">
             <div className="w-0 h-0 border-t-310 border-t-[#b0c7ab] opacity-20 border-r-1550 border-r-transparent top-0 -left-30 absolute" />
             <div className="w-[90%] flex flex-col gap-10 lg:gap-4 items-center lg:items-start z-20">
                 <h3 className='text-primary-green text-sm'>How It Works</h3>
@@ -20,15 +20,20 @@ export default function HowItWorks() {
                     {steps.map((step, index)=> {
                         const first = index === 0;
                         return (
-                        <div key={index} className="flex items-start w-[86%] max-w-150 gap-3">
-                            <p className={`w-10 h-10 flex items-center justify-center border-[0.5px] border-[#D5D5D5] rounded-full ${first && 'bg-primary-green text-white'}`}>{step.id}</p>
-                            <div className='flex flex-col gap-4 w-[55%]'>
-                                <h3 className="text-xl leading-7">{step.title}</h3>
-                                <p className="text-base leading-6">{step.desc}</p>
-                            </div>
-                        </div>
+                            <div key={index} className='flex flex-col w-fit'>
+                                <div className="flex items-start w-[86%] max-w-150 gap-3">
+                                    <p className={`w-10 h-10 flex items-center justify-center border-[0.5px] border-[#D5D5D5] rounded-full ${first && 'bg-primary-green text-white'}`}>{step.id}</p>
+                                    <div className='flex flex-col gap-4 w-[55%]'>
+                                        <h3 className="text-xl leading-7">{step.title}</h3>
+                                        <p className="text-base leading-6">{step.desc}</p>
+                                    </div>
+                                </div>
+                                
+                                    <hr className="w-full border border-gray-100 mt-8"/>
+                                </div>
                     )})}
                 </div>
+                
             </div>
 
             <Image src={phone} alt="phone" width={300} height={300} className="w-160 md:w-100 z-20"/>

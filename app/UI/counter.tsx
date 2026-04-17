@@ -41,22 +41,22 @@ const Counter = ({ first, second, icon, suffix = "" }: CounterProps) => {
   return (
     <div ref={ref} className="flex ">
       {/* Optional Icon (e.g., < ) */}
-      {icon && <span className="mt-2 text-lg font-bold">{icon}</span>}
+      {icon && <span className="mt-2 text-2xl font-bold">{icon}</span>}
 
       {/* The Primary Number */}
-      <motion.span className=" mt-0.5 text-lg font-bold">
+      <motion.span className=" mt-0.5 text-2xl font-bold">
         {displayFirst}
       </motion.span>
 
       {/* The Secondary Number (Acting independently) */}
       {second !== null && (
-          <motion.span className=" text-lg font-bold">
+          <motion.span className=" text-2xl font-bold">
             {displaySecond}
           </motion.span>
       )}
 
       {/* The Suffix (e.g., M, %, min) */}
-      <span className=" text-lg font-bold">{suffix}</span>
+      <span className=" text-2xl font-bold">{suffix}</span>
     </div>
   );
 };

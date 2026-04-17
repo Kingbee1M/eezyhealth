@@ -21,7 +21,7 @@ export default function Navbar() {
         w-full max-w-screen fixed top-0 left-0 z-40 bg-nav-bg p-3
         flex flex-col md:flex-row md:items-center justify-between
         transition-all duration-300 ease-in-out
-        px-16
+        md:px-16 px-6
         ${isOpen ? 'h-56' : 'h-10 md:h-12'} 
         overflow-hidden
         `}>
@@ -39,9 +39,9 @@ export default function Navbar() {
                 {navs.map((nav, index) => (
                     <li key={index} className=''>
                         {nav.internal? (
-                        <Link href={nav.link} className={`font-dmSans text-xs md:text-xs xl:text-base cursor-pointer ${pathname === nav.link ? 'text-primary-green' : ''}`}>{nav.title}</Link>
+                        <Link href={nav.link} className={`font-dmSans text-xs md:text-sm xl:text-base cursor-pointer ${pathname === nav.link ? 'text-primary-green' : ''}`}>{nav.title}</Link>
                         ) : (
-                            <a href={nav.link} className='font-dmSans text-xs md:text-xs xl:text-base cursor-pointer'>{nav.title}</a>
+                            <a href={nav.link} className='font-dmSans text-xs md:text-sm xl:text-base cursor-pointer'>{nav.title}</a>
                         )}
                         
                     </li>

@@ -1,5 +1,5 @@
 'use client'
-import img from "@/public/svg/blood-pressure.svg"
+import img from "@/public/svg/contact-doc.svg"
 import Image from "next/image"
 import Link from "next/link"
 import { useFormik, FormikErrors, FormikTouched } from "formik"
